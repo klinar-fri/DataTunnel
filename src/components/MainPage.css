@@ -1,0 +1,39 @@
+.firstPage{
+    display: flex;
+    height: 45em;
+    width: 100%;
+    /* background-color: #0D0F10; */
+}
+.secondPageHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    width: 100%;
+    background-color: lightblue;
+}
+.thirdPageHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    width: 100%;
+    background-color: lightcyan;
+}
+.secondPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40em;
+    width: 100%;
+    background-color: lightblue;
+}
+.question{   
+    font-family: Poppins,sans-serif;
+}
+
+@media only screen and (max-width: 500px) {
+    .question{
+        text-align: center;
+    }
+}
