@@ -1,10 +1,101 @@
 body{
-    margin: 0;
+    margin: 0;   
 }
 
 .wrapper{
-    display: flex;
+    display: inline-flex;
     height: 60px;
     width: 100%;
     background-color: #0D0F10;
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
 }
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.features{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #A1A1A1;
+    cursor: pointer;
+}
+
+.features:hover{
+    color: #ffffff;
+}
+
+.tick{
+    transform: rotate(-90deg);
+}
+
+.tickTwo{
+    transform: rotate(-90deg);
+}
+
+.rotate {
+    transform: rotate(-270deg);
+    transition: transform 0.2s ease-in-out;
+    color: #ffffff;
+}
+
+.rotateBack{
+    transition: transform 0.2s ease-in-out;
+}
+
+.featuresTxt{
+    color: #ffffff;
+}
+.featuresTxtBack{
+    color: #A1A1A1;
+}
+
+.logoLabel{
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    padding-left: 5px;
+    cursor: pointer;    
+}
+
+.logo{
+    width: 32px;
+}
+
+.pricing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #A1A1A1;
+}
+.pricing:hover{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #A1A1A1;
+}
+.download:hover{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.downTxt{
+    color: #ffffff;
+}
+.downTxtBack{
+    color: #A1A1A1;
+}
+
+/* @media (max-width: 1200px) {
+
+}
+   */
