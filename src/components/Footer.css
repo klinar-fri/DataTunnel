@@ -1,0 +1,11 @@
+.wrapperFooter{
+    display: inline-flex;
+    height: 60px;
+    width: 100%;
+    background-color: #1D1D1F;
+    color: #A1A1A1;
+    font-family: Poppins, sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+

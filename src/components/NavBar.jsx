@@ -1,8 +1,15 @@
 import "./NavBar.css";
 import logo from "./icons.png";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
+
+    const navigate = useNavigate();
+
+    const handlePricingClick = () => {
+        navigate('/pricing');
+    };
 
     const [isRotated, setIsRotated] = useState(false);
     const [isRotatedTwo, setIsRotatedTwo] = useState(false);
@@ -30,7 +37,7 @@ function NavBar() {
                 <div className={`tick ${isRotated ? 'rotate' : 'rotateBack'}`}>{'<'}</div>
             </div>
             <div className="pricing">
-                <div className="pricingLink">Pricing</div>
+                <div className="pricingLink" onClick={handlePricingClick}>Pricing</div>
             </div>
             <div className={`download ${isRotatedTwo ? 'rotated' : ''}`} onClick={handleRotateClickTwo}>
                 <div className={`downloadMenu ${isRotatedTwo ? 'downTxt' : 'downTxTBack'}`}>Download</div>
