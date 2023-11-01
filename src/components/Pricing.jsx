@@ -1,7 +1,6 @@
 function Pricing(){
     return(
         <>
-            HI
         </>
     )
 }
