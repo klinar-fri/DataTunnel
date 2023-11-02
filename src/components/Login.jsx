@@ -29,7 +29,6 @@ function Login() {
                 <img className="logoTwo" src={logo} alt="logoTwo" onClick={handleBackClick}/>
                 <label className="logoLabelTwo" htmlFor="logoTwo" onClick={handleBackClick}>Data Tunnel</label>
             </div>
-            
             <div className="loginForm">
                 <h3 className='welcome'>Welcome back</h3>
                 <div className='email'>
@@ -48,7 +47,7 @@ function Login() {
                 </div>
                 <div className='reg'>
                     <label htmlFor="gotoReg">Don't have an account?</label>
-                    <div className='gotoReg' onClick={handleGotoRegister}>Register Here</div>
+                    <div className='gotoReg' onClick={handleGotoRegister}>Register here</div>
                 </div>
             </div>
         </div>
