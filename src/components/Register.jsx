@@ -31,7 +31,7 @@ function Login() {
         setHasNumber(/\d/.test(newPassword));
       };
 
-    const  validPassword = () => {
+    const validPassword = () => {
         if(isLenValid && hasCapitalLetter && hasNumber){
             canContinue = true;
         }
