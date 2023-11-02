@@ -16,7 +16,7 @@ function NavBar() {
     };
 
     const handleCreateAccClick = () =>{
-        navigate('register');
+        navigate('/register');
     }
 
     const [isRotated, setIsRotated] = useState(false);
@@ -59,6 +59,11 @@ function NavBar() {
                 </div>
                 <div className="createAcc">
                     <button className="createAccBtn" onClick={handleCreateAccClick}>Create account</button>
+                </div>
+                <div className="burgerMenu">
+                    <div className="burger">-</div>
+                    <div className="burger">-</div>
+                    <div className="burger">-</div>
                 </div>
             </div>
         </div>
