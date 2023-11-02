@@ -44,11 +44,11 @@ function Login() {
     return (
         <>
         <div className="registerWrapper">
+            <div className='arrowBack' onClick={handleBackClick}> ← </div>
             <div className="imageTwo">
                 <img className="logoTwo" src={logo} alt="logoTwo" onClick={handleBackClick}/>
                 <label className="logoLabelTwo" htmlFor="logoTwo" onClick={handleBackClick}>Data Tunnel</label>
             </div>
-            
             <div className="registerForm">
                 <h3 className='welcome'>Create an account</h3>
                 <div className='email'>

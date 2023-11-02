@@ -25,6 +25,7 @@ function Login() {
     return (
         <>
         <div className="loginWrapper">
+            <div className='arrowBack' onClick={handleBackClick}> ← </div>
             <div className="imageTwo">
                 <img className="logoTwo" src={logo} alt="logoTwo" onClick={handleBackClick}/>
                 <label className="logoLabelTwo" htmlFor="logoTwo" onClick={handleBackClick}>Data Tunnel</label>
