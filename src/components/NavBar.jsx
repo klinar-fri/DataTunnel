@@ -1,7 +1,7 @@
 import "./NavBar.css";
 import logo from "./icons.png";
 import { useState } from "react";
-import { useActionData, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
 
@@ -45,6 +45,15 @@ function NavBar() {
         });
     };
 
+    const [showOverlay, setShowOverlay] = useState(false);
+
+    const handleShowOverlay = () => {
+       setShowOverlay(!showOverlay);
+       const overlayWrapper = document.getElementsByClassName("overlayWrapper")[0];
+       if (overlayWrapper) {
+         overlayWrapper.style.display = showOverlay ? "none" : "flex";
+       }
+    };
 
     return(
         <div className="wrapper">
@@ -72,12 +81,39 @@ function NavBar() {
                 <div className="createAcc">
                     <button className="createAccBtn" onClick={handleCreateAccClick}>Create account</button>
                 </div>
-                <div className={`burgerMenu ${isChanged ? '': 'burgerMenu'}`} onClick={handleIconChange}>
+                <div className={`burgerMenu ${isChanged ? '': 'burgerMenu'}`} onClick={() => {
+                      handleIconChange();
+                      handleShowOverlay();
+                    }}>
                     <div className={`burger ${isChanged ? 'closeIconLine': 'burger'}`}>-</div>
                     <div className={`burger ${isChanged ? 'closeIconLineTwo': 'burger'}`}>-</div>
                     <div className={`burger ${isChanged ? 'none': 'burger'}`}>-</div>
                 </div>
             </div>
+            {showOverlay && <div className="overlayWrapper">
+                <div className="elementsTop">
+                    <div className="featureBurgerWrap">
+                        <div className="featureBurger">Features</div>
+                        <span className="point">{'>'}</span>
+                    </div>
+                    <div className="pricingBurgerWrap" onClick={handlePricingClick}>
+                        <div className="pricingBurger">Pricing</div>
+                        <span className="point">{'>'}</span>
+                    </div>
+                    <div className="downloadBurgerWrap" onClick={handlePricingClick}>
+                        <div className="downloadBurger">Download</div>
+                        <span className="point">{'>'}</span>
+                    </div>
+                </div>
+                <div className="elementsBottom">
+                    <div className="loginBurger">
+                        <div className="loginBtnBurger" onClick={handelLoginClick}>Log in</div>
+                    </div>
+                    <div className="createAccBurger">
+                        <button className="createAccBtnBurger" onClick={handleCreateAccClick}>Create account</button>
+                    </div>
+                </div>
+            </div>}
         </div>
         
     );
