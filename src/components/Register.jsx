@@ -45,9 +45,9 @@ function Login() {
         <>
         <div className="registerWrapper">
             <div className='arrowBack' onClick={handleBackClick}> ← </div>
-            <div className="imageTwo">
-                <img className="logoTwo" src={logo} alt="logoTwo" onClick={handleBackClick}/>
-                <label className="logoLabelTwo" htmlFor="logoTwo" onClick={handleBackClick}>Data Tunnel</label>
+            <div className="imageTwo" onClick={handleBackClick}>
+                <img className="logoTwo" src={logo} alt="logoTwo"/>
+                <label className="logoLabelTwo" htmlFor="logoTwo">Data Tunnel</label>
             </div>
             <div className="registerForm">
                 <h3 className='welcome'>Create an account</h3>

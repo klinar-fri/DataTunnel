@@ -38,15 +38,20 @@ function NavBar() {
         setIsChanged(!isChanged);
     };
     
-    
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 
 
     return(
         <div className="wrapper">
             <div className="wrapperLeft">
                 <div className="image">
-                    <img className="logo" src={logo} alt="logo" onClick={() => location.reload()}/>
-                    <label className="logoLabel" htmlFor="logo" onClick={() => location.reload()}>Data Tunnel</label>
+                    <img className="logo" src={logo} alt="logo" onClick={scrollToTop}/>
+                    <label className="logoLabel" htmlFor="logo" onClick={scrollToTop}>Data Tunnel</label>
                 </div>
                 <div className={`features ${isRotated ? 'rotated' : ''}`} onClick={handleRotateClick}>
                     <div className={`featureMenu ${isRotated ? 'featuresTxt' : 'featuresTxTBack'}`}>Features</div>

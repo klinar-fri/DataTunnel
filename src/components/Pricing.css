@@ -1,0 +1,243 @@
+.wrapEverything{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0D0F10;
+    position: relative;
+}
+
+.pricingWrapper{
+    display: flex;
+}
+
+.optionOne, .optionTwo, .optionThree{
+    background-color:#ffffff;
+    border-radius: 6px;
+    color: rgb(13, 15, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    font-family: Poppins, sans-serif;
+    margin: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    font-family: Poppins, sans-serif; 
+    width: 100%;
+    max-width: 990px;
+    color: #A1A1A1;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-bottom: 140px;
+}
+.fpart{
+    color: rgb(41, 151, 255);
+}
+
+.planType{
+    display: flex;
+    width: 90%;
+    height: 20%;
+    justify-content: space-between;
+    align-items: center;
+    
+    border-bottom: 1px solid #A1A1A1;
+}
+.planTypeTxt{
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.discountAmountOne{
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #A1A1A1;
+    border-radius: 100px;
+    background-color: #A1A1A1;
+}
+.discountAmount{
+    color: #071018;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid rgb(0, 240, 211); 
+    border-radius: 100px;
+    background-color: rgb(0, 240, 211);
+}
+.optionTwo{
+    border: 4px solid rgb(41, 151, 255);
+}
+.optionOne, .optionThree{
+    border: 4px solid #0D0F10;
+}
+
+.price{
+    padding: 80px;
+    color: #a1a1a1;
+    font-size: 1rem;
+    line-height: 1.27;
+}
+.spanPrice{
+    font-size: 2.25rem;
+    line-height: 1.11;
+    color: #0D0F10;
+}
+
+.getDeal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
+    height: 35px;
+    border: 1px solid rgb(41, 151, 255);
+    background-color: rgb(41, 151, 255);;
+    color: #ffffff;
+    border-radius: 100px;
+}
+.getDeal:hover{
+    cursor: pointer;
+    background-color: rgb(86, 171, 250);
+}
+
+.moneyBack{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    padding-top: 35px;
+    color: #A1A1A1;
+}
+.el1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    border: 1px solid ;
+    border-radius: 50%;
+}
+.el2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (min-width: 980px) {
+    .wrapEverything{
+        height: 100vh;
+    }
+}
+
+@media (max-width: 980px){
+    .pricingWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title{
+        font-size: 24px;
+        max-width: 300px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+
+@media (min-width: 300px){
+    .optionOne, .optionTwo, .optionThree{
+        width: 300px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 300px) {
+    .optionOne, .optionTwo, .optionThree {
+        width: 90%;
+        height: 400px;
+        margin: 10px;
+    }
+}
+
+
+/*Arrow copied from Register, just with a diff name to apply one more property*/
+
+.arrowBackTwo{
+    position: absolute;
+    left: 200px;
+    color: #ffffff;
+    font-family: Poppins, Arial, "sans-serif";
+    font-size: 40px;
+    transition: 0.3s ease-in-out;
+}
+.arrowBackTwo:hover{
+    cursor: pointer;
+    transform: translate(-10px);
+    padding-right: 20px;
+}
+
+.secondArrow{
+    display: none;
+    color: #ffffff;
+    font-family: Poppins, Arial, "sans-serif";
+    font-size: 40px;
+    width: 100%;
+    transform: translate(20px);
+}
+
+@media only screen and (max-width: 1380px) {
+    .arrowBackTwo{
+        left: 4em;
+    }
+}
+@media only screen and (max-width: 1130px) {
+    .arrowBackTwo{
+        left: 3.5em;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .arrowBackTwo{
+        left: 2.5em;
+    }
+}
+@media  screen and (max-width: 850px) {
+    .arrowBackTwo{
+        left: 1.5em;
+    }
+}
+
+@media (max-width: 570px){
+    .arrowBackTwo{
+        display: none;
+    }
+}
+
+@media (max-width: 570px){
+    .secondArrow{
+        display: block;
+    }
+}
+
+@media (min-width: 980px){
+    .optionOne:hover{
+        transform: translate(-10px, -10px);
+    }
+    .optionThree:hover{
+        transform: translate(10px, -10px);
+    }
+    .optionTwo:hover{
+        transform: translate(0, -10px);
+    }
+}
+
