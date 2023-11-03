@@ -1,7 +1,7 @@
 import "./NavBar.css";
 import logo from "./icons.png";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useActionData, useNavigate } from 'react-router-dom';
 
 function NavBar() {
 
@@ -31,6 +31,13 @@ function NavBar() {
       setIsRotatedTwo(!isRotatedTwo);
       setIsRotated(false); 
     };
+
+    const [isChanged, setIsChanged] = useState(false);
+
+    const handleIconChange = () => {
+        setIsChanged(!isChanged);
+    };
+    
     
 
 
@@ -45,8 +52,8 @@ function NavBar() {
                     <div className={`featureMenu ${isRotated ? 'featuresTxt' : 'featuresTxTBack'}`}>Features</div>
                     <div className={`tick ${isRotated ? 'rotate' : 'rotateBack'}`}>{'<'}</div>
                 </div>
-                <div className="pricing">
-                    <div className="pricingLink" onClick={handlePricingClick}>Pricing</div>
+                <div className="pricing" onClick={handlePricingClick}>
+                    <div className="pricingLink">Pricing</div>
                 </div>
                 <div className={`download ${isRotatedTwo ? 'rotated' : ''}`} onClick={handleRotateClickTwo}>
                     <div className={`downloadMenu ${isRotatedTwo ? 'downTxt' : 'downTxTBack'}`}>Download</div>
@@ -60,10 +67,10 @@ function NavBar() {
                 <div className="createAcc">
                     <button className="createAccBtn" onClick={handleCreateAccClick}>Create account</button>
                 </div>
-                <div className="burgerMenu">
-                    <div className="burger">-</div>
-                    <div className="burger">-</div>
-                    <div className="burger">-</div>
+                <div className={`burgerMenu ${isChanged ? '': 'burgerMenu'}`} onClick={handleIconChange}>
+                    <div className={`burger ${isChanged ? 'closeIconLine': 'burger'}`}>-</div>
+                    <div className={`burger ${isChanged ? 'closeIconLineTwo': 'burger'}`}>-</div>
+                    <div className={`burger ${isChanged ? 'none': 'burger'}`}>-</div>
                 </div>
             </div>
         </div>

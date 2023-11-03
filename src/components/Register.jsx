@@ -21,7 +21,7 @@ function Login() {
     const [isLenValid, setLenValid] = useState(false);
     const [hasCapitalLetter, setCapitalLetter] = useState(false);
     const [hasNumber, setHasNumber] = useState(false);
-    const canContinue = false;
+    let canContinue = false;
 
     const handlePasswordChange = (e) => {
         const newPassword = e.target.value;
