@@ -9,7 +9,9 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    background-color: #0D0F10;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 3000 3000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask id=%22b%22 x=%220%22 y=%220%22 width=%223000%22 height=%223000%22%3E%3Cpath fill=%22url(%23a)%22 d=%22M0 0h3000v3000H0z%22%2F%3E%3C%2Fmask%3E%3Cpath fill=%22%230D0F10%22 d=%22M0 0h3000v3000H0z%22%2F%3E%3Cg style=%22transform-origin:center center%22 stroke=%22%23a1a1a14d%22 stroke-width=%223%22 mask=%22url(%23b)%22%3E%3Cpath fill=%22none%22 d=%22M2288 0h143v143h-143zM2860 0h143v143h-143zM715 143h143v143H715zM2431 143h143v143h-143zM2574 143h143v143h-143zM1001 286h143v143h-143zM1287 286h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a11e%22 d=%22M2431 286h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a148%22 d=%22M572 429h143v143H572z%22%2F%3E%3Cpath fill=%22none%22 d=%22M858 429h143v143H858zM2717 429h143v143h-143zM858 572h143v143H858zM1430 572h143v143h-143zM1859 572h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a10a%22 d=%22M2431 572h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a13c%22 d=%22M429 715h143v143H429z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1287 715h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a131%22 d=%22M286 858h143v143H286z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2717 858h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a13d%22 d=%22M715 1001h143v143H715z%22%2F%3E%3Cpath fill=%22%23a1a1a123%22 d=%22M2574 1001h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M429 1144h143v143H429z%22%2F%3E%3Cpath fill=%22%23a1a1a136%22 d=%22M1144 1144h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1430 1144h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a13d%22 d=%22M2145 1144h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a13b%22 d=%22M2574 1144h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a118%22 d=%22M143 1287h143v143H143z%22%2F%3E%3Cpath fill=%22%23a1a1a135%22 d=%22M286 1287h143v143H286z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2574 1287h143v143h-143zM429 1430h143v143H429z%22%2F%3E%3Cpath fill=%22%23a1a1a143%22 d=%22M1430 1430h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a12c%22 d=%22M2288 1430h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M286 1573h143v143H286zM1001 1573h143v143h-143zM1859 1573h143v143h-143zM858 1716h143v143H858zM1001 1716h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a11f%22 d=%22M2002 1716h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2574 1716h143v143h-143zM1001 1859h143v143h-143zM1144 1859h143v143h-143zM2002 1859h143v143h-143zM2431 1859h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a107%22 d=%22M2574 1859h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a118%22 d=%22M2288 2002h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1430 2145h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a116%22 d=%22M1716 2145h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M0 2288h143v143H0zM2002 2288h143v143h-143zM2145 2288h143v143h-143zM0 2431h143v143H0zM1144 2431h143v143h-143zM2002 2431h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a141%22 d=%22M2145 2431h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2288 2431h143v143h-143zM2717 2431h143v143h-143zM1573 2574h143v143h-143zM2002 2574h143v143h-143zM2288 2574h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a10b%22 d=%22M1716 2717h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2002 2860h143v143h-143z%22%2F%3E%3Cpath fill=%22%23a1a1a13b%22 d=%22M2145 2860h143v143h-143z%22%2F%3E%3Cpath fill=%22none%22 d=%22M2717 2860h143v143h-143z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CradialGradient id=%22a%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22%2F%3E%3Cstop offset=%221%22 stop-color=%22%23fff%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+    background-position: center center;
+    background-repeat: repeat;
     font-family: Poppins, sans-serif;
     color: #ffffff;
     padding-top: 120px;
@@ -18,15 +20,20 @@
 }
 
 .welcomeMsg{
+    padding-top: 40px;
     font-size: 3.25rem;
     text-align: center;
     padding-bottom: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .underWelcMsg{
     text-align: center;
     font-size: 1.25rem;
     padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .colorTxt{
@@ -35,8 +42,9 @@
 .colorTxt2{
     color: #f55c73;
 }
+  
 
-.getNow{
+.getNow {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -47,17 +55,36 @@
     background-color: #f54761;
     border: 1px solid transparent;
     color: #ffffff;
-    transition: 0.15s ease-in-out;
+    margin-bottom: 300px;
+    transition: 0.25s ease-in-out;
+    overflow: hidden; /* Hide overflow to prevent the text from showing outside the box */
+    position: relative; /* Position relative for positioning .p2 */
 }
 
-.p2{
+.p2 {
     display: none;
+    transform: translate(10px);
+    transition: transform 0.215s ease-in-out; /* Apply transition to transform property */
 }
-.getNow:hover{
+.p1{
+    transition: transform 0.25s ease-in-out;
+}
+
+.getNow:hover .p2 {
+    display: block;
+    transition: transform 0.25s ease-in-out;
+}
+.getNow:hover .p1 {
+    transition: transform 0.25s ease-in-out;
+    transform: translateX(-10%); /* Move .p2 back inside .getNow on hover */
+}
+
+.getNow:hover {
     cursor: pointer;
-    border: 1px solid rgb(86, 171, 250);
     background-color: rgb(86, 171, 250);
+    border: 1px solid rgb(86, 171, 250);
 }
+
 
 @media (max-width: 1200px){
     .welcomeMsg{
@@ -69,13 +96,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
     background-color: #ffffff;
     font-family: Poppins, sans-serif;
-    padding-bottom: 40px;
     gap: 80px;
+    padding-top: 20px;
 }
 
 .contentWrapper{
@@ -185,6 +212,10 @@
     }
     .secondPage{
         gap: 20px;
+        padding-bottom: 30px;
+    }
+    .getNow{
+        margin-bottom: 50px;
     }
 }
 
