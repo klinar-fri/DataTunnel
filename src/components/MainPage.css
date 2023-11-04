@@ -1,39 +1,195 @@
+.frame{
+    height: 100%;
+    width: 100%;
+}
 .firstPage{
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
     width: 100%;
     background-color: #0D0F10;
-}
-.secondPageHeader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 190px;
-    width: 100%;
-    background-color: lightblue;
-}
-.thirdPageHeader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 190px;
-    width: 100%;
-    background-color: lightcyan;
-}
-.secondPage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40em;
-    width: 100%;
-    background-color: lightblue;
-}
-.question{   
-    font-family: Poppins,sans-serif;
+    font-family: Poppins, sans-serif;
+    color: #ffffff;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    gap: 20px;
 }
 
-@media only screen and (max-width: 500px) {
-    .question{
-        text-align: center;
+.welcomeMsg{
+    font-size: 3.25rem;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+.underWelcMsg{
+    text-align: center;
+    font-size: 1.25rem;
+    padding-bottom: 40px;
+}
+
+.colorTxt{
+    color: #f54761;
+}
+.colorTxt2{
+    color: #f55c73;
+}
+
+.getNow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #f54761;
+    border: 1px solid transparent;
+    color: #ffffff;
+    transition: 0.15s ease-in-out;
+}
+
+.p2{
+    display: none;
+}
+.getNow:hover{
+    cursor: pointer;
+    border: 1px solid rgb(86, 171, 250);
+    background-color: rgb(86, 171, 250);
+}
+
+@media (max-width: 1200px){
+    .welcomeMsg{
+        font-size: 2.25rem;
+    }
+}
+
+.secondPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    font-family: Poppins, sans-serif;
+    padding-bottom: 40px;
+    gap: 80px;
+}
+
+.contentWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.secondPageTitle{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0D0F10;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.security, .privacy, .freedom{
+    background-color:#ffffff;
+    box-sizing: border-box;
+    color: rgb(13, 15, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    font-family: Poppins, sans-serif;
+    padding: 36px 48px;
+    line-height: 21px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 24px 0px;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+@media (min-width: 980px){
+    .security:hover{
+        transform: translate(-10px, -10px);
+    }
+    .freedom:hover{
+        transform: translate(10px, -10px);
+    }
+    .privacy:hover{
+        transform: translate(0, -10px);
+    }
+}
+
+
+.title12{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+    border-bottom: 1px solid #f54761;
+}
+.txt12{
+    font-size: 14px;
+    text-align: center;
+    color: rgb(134, 134, 139);
+
+}
+
+@media (min-width: 1260px){
+    .secondPage{
+        height: 80vh;
+    }
+}
+
+@media (min-width: 400px){
+    .security, .privacy, .freedom{
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .security, .privacy, .freedom {
+        width: 90%;
+        height: 400px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 1350px){
+    .contentWrapper{
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1260px){
+    .contentWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .secondPageTitle{
+        max-width: 400px;
+    }
+    .secondPage{
+        gap: 20px;
+    }
+}
+
+@media (max-width: 225px){
+    .secondPageTitle{
+        font-size: 24px;
     }
 }

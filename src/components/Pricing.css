@@ -102,7 +102,7 @@
     width: 115px;
     height: 35px;
     border: 1px solid rgb(41, 151, 255);
-    background-color: rgb(41, 151, 255);;
+    background-color: rgb(41, 151, 255);
     color: #ffffff;
     border-radius: 100px;
 }
@@ -232,12 +232,15 @@
 @media (min-width: 980px){
     .optionOne:hover{
         transform: translate(-10px, -10px);
+        cursor: pointer;
     }
     .optionThree:hover{
         transform: translate(10px, -10px);
+        cursor: pointer;
     }
     .optionTwo:hover{
         transform: translate(0, -10px);
+        cursor: pointer;
     }
 }
 
