@@ -52,7 +52,7 @@
     margin-bottom: 80px;
 }
 
-.email{
+.emailClass{
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -61,7 +61,7 @@
     padding-bottom: 40px;
 }
 
-.password{
+.passwordClass{
     display: flex;
     flex-direction: column;
     width: 70%;

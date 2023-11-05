@@ -2,10 +2,17 @@ import './Register.css';
 import logo from "./icons.png";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import axios from 'axios';
 
 
 function Login() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const [isLenValid, setLenValid] = useState(false);
+    const [hasCapitalLetter, setCapitalLetter] = useState(false);
+    const [hasNumber, setHasNumber] = useState(false);
 
     const navigate = useNavigate();
 
@@ -17,11 +24,10 @@ function Login() {
         navigate('/login');
     };
 
-    const [password, setPassword] = useState("");
-    const [isLenValid, setLenValid] = useState(false);
-    const [hasCapitalLetter, setCapitalLetter] = useState(false);
-    const [hasNumber, setHasNumber] = useState(false);
-    let canContinue = false;
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
     const handlePasswordChange = (e) => {
         const newPassword = e.target.value;
@@ -29,17 +35,36 @@ function Login() {
         setLenValid(newPassword.length >= 12);
         setCapitalLetter(/[A-Z]/.test(newPassword));
         setHasNumber(/\d/.test(newPassword));
-      };
+    };
 
-    const validPassword = () => {
+    const data = {
+        email: email,
+        password: password
+    };
+        
+    const handleSubmit = () => {
+        axios.post("http://localhost/register.php", JSON.stringify(data), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    };
+
+    const isPasswordValid = () => {
         if(isLenValid && hasCapitalLetter && hasNumber){
-            canContinue = true;
+            return true;
         }
-    }
+    };
     
+ 
 
 
-   
 
     return (
         <>
@@ -47,17 +72,17 @@ function Login() {
             <div className='arrowBack' onClick={handleBackClick}> ← </div>
             <div className="imageTwo" onClick={handleBackClick}>
                 <img className="logoTwo" src={logo} alt="logoTwo"/>
-                <label className="logoLabelTwo" htmlFor="logoTwo">Data Tunnel</label>
+                <label className="logoLabelTwo">Data Tunnel</label>
             </div>
             <div className="registerForm">
                 <h3 className='welcome'>Create an account</h3>
-                <div className='email'>
-                    <label htmlFor="emailBox">Email</label>
-                    <input className="emailBox" type="email" />
+                <div className='emailClass'>
+                    <label>Email</label>
+                    <input className="emailBox" type="email" name='email' value={email} onChange={handleEmailChange}/>
                 </div>
-                <div className='password'>
-                    <label htmlFor="passBox">Password</label>
-                    <input className='passBox' type="password" value={password} onChange={handlePasswordChange}/>
+                <div className='passwordClass'>
+                    <label>Password</label>
+                    <input className='passBox' type="password" value={password} name='password' onChange={handlePasswordChange}/>
                     <div className='passChecker'>
                         <div className={`checkMarkOne ${isLenValid ? 'valid' : ''}`}>✓</div>
                         <div className={`chars ${isLenValid ? 'valid' : ''}`}>12 characters</div>
@@ -67,11 +92,16 @@ function Login() {
                         <div className={`num ${hasNumber ? 'valid' : ''}`}>1 2 3</div>
                     </div>
                 </div>
-                <div className='log'>
+                <div className='log' onClick={ () => {
+                    if(isPasswordValid){
+                        handleSubmit();
+                        handleBackClick();
+                    }
+                }}>
                     <button className='loginBtnTwo'>Create account</button>
                 </div>
                 <div className='reg'>
-                    <label htmlFor="gotoReg">Already have an account?</label>
+                    <label>Already have an account?</label>
                     <div className='gotoReg' onClick={handleGotoLogin}>Login here</div>
                 </div>
             </div>

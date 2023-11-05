@@ -56,9 +56,8 @@
     border: 1px solid transparent;
     color: #ffffff;
     margin-bottom: 300px;
-    transition: 0.25s ease-in-out;
+    transition: 0.15s ease-in-out;
     overflow: hidden; /* Hide overflow to prevent the text from showing outside the box */
-    position: relative; /* Position relative for positioning .p2 */
 }
 
 .p2 {
