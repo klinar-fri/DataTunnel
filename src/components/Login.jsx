@@ -3,6 +3,8 @@ import logo from "./icons.png";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+import { useAuth } from './AuthContext';
+import Incorrect from "./Incorrect";
 
 
 function Login() {
@@ -11,6 +13,10 @@ function Login() {
 
     const handleBackClick = () => {
         navigate('/');
+    };
+
+    const handleGoToDashboard = () => {
+        navigate('/dashboard');
     };
 
     const handleResetPass = () => {
@@ -24,6 +30,8 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -33,10 +41,14 @@ function Login() {
         setPassword(e.target.value);
     };
 
+    const { setLoggedInUser } = useAuth();
+
     const data = {
         email: email,
         password: password
     };
+
+    const [showPopup, setShowPopup] = useState(false);
         
     const handleSubmit = () => {
         axios.post("http://localhost/login.php", JSON.stringify(data), {
@@ -45,14 +57,23 @@ function Login() {
             }
         })
         .then(response => {
-            setMessage(response.data.message);
             if (response.data.message === 'You are logged in!') {
-                handleBackClick();
+                setLoggedInUser(email);
+                handleGoToDashboard();
+            } else {
+                setShowPopup(true);
+                setErrorMessage(response.data.message);
             }
         })
         .catch(error => {
             console.error("Error:", error);
+            setErrorMessage("An error occurred. Please try again later.");
+            
         });
+      };
+      
+      const handlePopupClose = () => {
+        setShowPopup(false);
     };
    
 
@@ -84,6 +105,7 @@ function Login() {
                     <label htmlFor="gotoReg">Don't have an account?</label>
                     <div className='gotoReg' onClick={handleGotoRegister}>Register here</div>
                 </div>
+                {showPopup && <Incorrect message={errorMessage} onClose={handlePopupClose} />}
             </div>
         </div>
         </>

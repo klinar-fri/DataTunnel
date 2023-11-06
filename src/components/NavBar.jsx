@@ -75,8 +75,8 @@ function NavBar() {
                 </div>
             </div>
             <div className="wrapperRight">
-                <div className="login">
-                    <div className="loginBtn" onClick={handelLoginClick}>Log in</div>
+                <div className="login"onClick={handelLoginClick}>
+                    <div className="loginBtn">Log in</div>
                 </div>
                 <div className="createAcc">
                     <button className="createAccBtn" onClick={handleCreateAccClick}>Create account</button>
@@ -100,7 +100,7 @@ function NavBar() {
                         <div className="pricingBurger">Pricing</div>
                         <span className="point">{'>'}</span>
                     </div>
-                    <div className="downloadBurgerWrap" onClick={handlePricingClick}>
+                    <div className="downloadBurgerWrap">
                         <div className="downloadBurger">Download</div>
                         <span className="point">{'>'}</span>
                     </div>

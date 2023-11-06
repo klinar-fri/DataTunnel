@@ -1,0 +1,25 @@
+.checkoutContainer{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0D0F10;
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    font-size: 34px;
+    text-align: center;
+    
+}
+
+.goBack{
+    font-size: 40px;
+    transition: 0.3s ease-in-out;
+}
+
+.goBack:hover{
+    cursor: pointer;
+    transform: translate(-10px);
+}
+

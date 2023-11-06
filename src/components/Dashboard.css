@@ -1,0 +1,120 @@
+.dashWrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: #0D0F10;
+    width: 100%;
+    height: 100%;
+    font-family: Poppins, sans-serif;
+}
+
+.headerDash{
+    display: flex;
+    flex-direction: row;
+    background-color: #0D0F10;
+    width: 100%;
+    height: 60px;
+    color: #A1a1a1;
+}
+
+.wrapperLeftDash{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: left;
+    padding-left: 200px;
+    font-size: 14px;
+}
+
+.displayEmail{
+    color: rgb(41, 151, 255);
+}
+
+.wrapperRightDash{
+    display: inline-flex;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    font-size: 14px;
+    padding-right: 200px;
+    padding-left: 20px;
+}
+
+
+
+.logoutBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #0D0F10;
+    border: 1px solid #ffffff;
+    padding-left: 12px;
+    padding-right: 12px;
+    min-width: 32px;
+    border-radius: 4px;
+    height: 32px;
+    font-weight: 500;
+    text-wrap: nowrap;
+}
+
+.logoutBtn:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0D0F10;
+    transition: 0.3s ease-in-out;
+}
+
+
+@media (max-width: 720px){
+    .wrapperLeftDash{
+        padding-left: 120px;
+    }
+    .wrapperRightDash{
+        padding-right: 120px;
+    }
+}
+
+
+@media (max-width: 630px){
+    .wrapperLeftDash{
+        padding-left: 80px;
+    }
+    .wrapperRightDash{
+        padding-right: 80px;
+    }
+}
+
+
+@media (max-width: 520px){
+    .wrapperLeftDash{
+        padding-left: 20px;
+    }
+    .wrapperRightDash{
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 400px){
+    .wrapperLeftDash{
+        font-size: 14px;
+    }
+    .wrapperRightDash{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 300px){
+    .wrapperLeftDash{
+        padding-left: 10px;
+    }
+    .wrapperRightDash{
+        padding-right: 10px;
+    }
+    .welcomeMsgDash{
+        display: none;
+    }
+}
+

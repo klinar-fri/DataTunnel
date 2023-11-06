@@ -22,24 +22,20 @@ function PasswordReset() {
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
-
-    const data = {
-        email: email
+       
+    const handleSubmit = () => {
+        axios.post("http://localhost/reset.php", JSON.stringify({ email }), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
     };
-        
-    // const handleSubmit = () => {
-    //     axios.post("http://localhost/reset.php", JSON.stringify(data), {
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //     .then(response => {
-    //         console.log(response.data)
-    //     })
-    //     .catch(error => {
-    //         console.error("Error:", error);
-    //     });
-    // };
 
 
     return(
@@ -57,7 +53,7 @@ function PasswordReset() {
                     <label htmlFor="emailBox">Email</label>
                     <input className="emailBox" type="email" value={email} name='email' onChange={handleEmailChange} />
                 </div>
-                <div className='log' >
+                <div className='log' onClick={handleSubmit}>
                     <button className='loginBtnTwo'>Submit</button>
                 </div>
                 <div className='reg'>

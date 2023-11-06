@@ -9,6 +9,10 @@ function Pricing() {
         navigate('/');
     };
 
+    const handleGoToCheckout = () => {
+        navigate('/checkout')
+    }
+
     return(
         <>
         
@@ -20,7 +24,7 @@ function Pricing() {
             <div className='textTitleAdd'>select a plan for yourself</div>
             <div className="pricingWrapper">
                 <div className='secondArrow' onClick={handleBackClick}> ← </div>
-                <div className="optionOne">
+                <div className="optionOne" onClick={handleGoToCheckout}>
                     <div className="planType">
                         <div className='planTypeTxt'>1-Month plan</div>
                         <div className="discountAmountOne">save 0%</div>
@@ -32,7 +36,7 @@ function Pricing() {
                         <div className="el2">&nbsp;30-day money-back guarantee</div>
                     </div>
                 </div>
-                <div className="optionTwo">
+                <div className="optionTwo" onClick={handleGoToCheckout}>
                     <div className="planType">
                         <div className='planTypeTxt'>2-Year plan</div>
                         <div className="discountAmount">save 50%</div>
@@ -44,7 +48,7 @@ function Pricing() {
                         <div className="el2">&nbsp;30-day money-back guarantee</div>
                     </div>
                 </div>
-                <div className="optionThree">
+                <div className="optionThree" onClick={handleGoToCheckout}>
                     <div className="planType">
                         <div className='planTypeTxt'>1-Year plan</div>
                         <div className="discountAmount">save 40%</div>

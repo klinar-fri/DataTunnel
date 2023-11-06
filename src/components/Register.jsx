@@ -24,6 +24,9 @@ function Login() {
         navigate('/login');
     };
 
+    const handleGoToDashboard = () => {
+        navigate('/dashboard');
+    };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
