@@ -14,7 +14,7 @@ import { AuthProvider } from './components/AuthContext.jsx';
 
 
 const router = createBrowserRouter([
-  {path:'/', element: <App></App>}, // our domain
+  {path:'/', element: <App></App>}, 
   {path: '/pricing', element: <Pricing></Pricing>},
   {path: '/login', element: <Login></Login>},
   {path: '/register', element: <Register></Register>},

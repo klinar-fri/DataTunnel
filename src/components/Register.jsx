@@ -3,7 +3,8 @@ import logo from "./icons.png";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-
+import AddressTaken from './AddressTaken';
+import GoodMessage from './GoodMessage'
 
 function Login() {
 
@@ -24,10 +25,6 @@ function Login() {
         navigate('/login');
     };
 
-    const handleGoToDashboard = () => {
-        navigate('/dashboard');
-    };
-
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -44,6 +41,10 @@ function Login() {
         email: email,
         password: password
     };
+
+    const [errorMsg, setErrorMsg] = useState('');
+    const [showErrPopup, setShowErrPopup] = useState(false);
+    const [showGoodPupup, setShowGoodPopup] = useState(false);
         
     const handleSubmit = () => {
         axios.post("http://localhost/register.php", JSON.stringify(data), {
@@ -52,10 +53,21 @@ function Login() {
             }
         })
         .then(response => {
-            console.log(response.data);
+            if(response.data.message === "You are now registered!"){
+                setShowErrPopup(false);
+                setShowGoodPopup(true);
+                setErrorMsg("Account created, you can now login!");
+                setTimeout(() => {
+                    navigate("/login");
+                  }, 1000);
+            }else{
+                setShowErrPopup(true);
+                setErrorMsg(response.data.message);
+            }
         })
         .catch(error => {
             console.error("Error:", error);
+            setErrorMsg(error.data.message);
         });
     };
 
@@ -64,6 +76,9 @@ function Login() {
             return true;
         }
     };
+
+
+
     
     return (
         <>
@@ -94,7 +109,6 @@ function Login() {
                 <div className='log' onClick={ () => {
                     if(isPasswordValid){
                         handleSubmit();
-                        handleBackClick();
                     }
                 }}>
                     <button className='loginBtnTwo'>Create account</button>
@@ -103,6 +117,8 @@ function Login() {
                     <label>Already have an account?</label>
                     <div className='gotoReg' onClick={handleGotoLogin}>Login here</div>
                 </div>
+                {showErrPopup && <AddressTaken message={errorMsg} />}
+                {showGoodPupup && <GoodMessage message={errorMsg}/>}
             </div>
         </div>
         </>

@@ -86,7 +86,7 @@ function Login() {
                 <label className="logoLabelTwo" htmlFor="logoTwo">Data Tunnel</label>
             </div>
             <div className="loginForm">
-                <h3 className='welcome'>Welcome back</h3>
+                <h3 className='welcome'>Log in</h3>
                 <div className='emailClass'>
                     <label htmlFor="emailBox">Email</label>
                     <input className="emailBox" type="email" name='email' value={email} onChange={handleEmailChange}/>
