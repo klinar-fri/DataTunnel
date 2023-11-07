@@ -9,6 +9,7 @@ import Register from './components/Register.jsx';
 import PasswordReset from './components/PasswordReset.jsx';
 import Checkout from './components/Checkout.jsx';
 import Dashboard from './components/Dashboard.jsx';
+import Features from './components/Features.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 
 
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
   {path: '/register', element: <Register></Register>},
   {path: '/password-reset', element: <PasswordReset></PasswordReset>},
   {path: '/dashboard', element: <Dashboard></Dashboard>},
-  {path: '/checkout', element: <Checkout></Checkout>}
+  {path: '/checkout', element: <Checkout></Checkout>},
+  {path: '/features', element: <Features></Features>}
 ]);
 
 

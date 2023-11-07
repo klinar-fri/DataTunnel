@@ -1,0 +1,43 @@
+.featuresMenuWrapper{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 305px;
+    top: 60px;
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 1px solid #a1a1a1;
+    border-radius: 8px;
+    font-family: Poppins, sans-serif;
+    color: #0D0F10;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1500px){
+    .featuresMenuWrapper{
+        left: 265px;
+    }
+}
+
+.allFeatures{
+    width: 85%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+}
+.whyUseVpn{
+    width: 85%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+}
+.allFeatures:hover{
+    cursor: pointer;
+    background-color: rgb(86, 171, 250);
+}
+.whyUseVpn:hover{
+    cursor: pointer;
+    background-color: rgb(86, 171, 250);
+}
