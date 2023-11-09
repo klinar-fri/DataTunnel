@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_fetch($check_stmt);
             
             if (password_verify($password, $db_password)) {
-                echo json_encode(array("message" => "You are logged in!")); //, "id" => $db_id, "email" => $db_email)
+                echo json_encode(array("message" => "You are logged in!"));
             } else {
                 echo json_encode(array("message" => "Email/Password is incorrect!"));
             }
