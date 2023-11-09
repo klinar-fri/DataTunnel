@@ -36,7 +36,11 @@ function NavBar() {
     };
 
     const handleShowDownload = () => {
-        setShowDownload(!showFeatures);
+        setShowDownload(!showDownload);
+        const resourcesMenuWrapper = document.getElementsByClassName("resourcesMenuWrapper")[0];
+        if (resourcesMenuWrapper){
+            resourcesMenuWrapper.style.display = showOverlay ? "none" : "flex";
+        }
         setShowFeatures(false);
     }
 
@@ -110,7 +114,7 @@ function NavBar() {
                     handleRotateClickTwo();
                     handleShowDownload();
                 }}>
-                    <div className={`downloadMenu ${isRotatedTwo ? 'downTxt' : 'downTxTBack'}`}>Download</div>
+                    <div className={`downloadMenu ${isRotatedTwo ? 'downTxt' : 'downTxTBack'}`}>Resources</div>
                     <div className={`tickTwo ${isRotatedTwo ? 'rotate' : 'rotateBack'}`}>{'<'}</div>
                 </div>
             </div>
@@ -130,6 +134,7 @@ function NavBar() {
                     <div className={`burger ${isChanged ? 'none': 'burger'}`}>-</div>
                 </div>
             </div>
+
             {showOverlay &&
             <div className="overlayWrapper">
                 <div className="elementsTop">
@@ -155,6 +160,7 @@ function NavBar() {
                     </div>
                 </div>
             </div>}
+
             {showFeatures && 
             <div className="featuresMenuWrapper">
                 <div className="allFeatures" onClick={handleGoToFeatures}>All Features&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
@@ -164,6 +170,12 @@ function NavBar() {
                     handleCloseFeatures();
                 }}>Why VPN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
             </div>}
+
+            {showDownload &&
+            <div className="resourcesMenuWrapper">
+                <div className="support">Help & support&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
+            </div>}
+
         </div>
         
     );

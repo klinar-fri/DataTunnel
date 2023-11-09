@@ -1,43 +1,287 @@
-.featuresMenuWrapper{
+.featuresWrapper {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 305px;
-    top: 60px;
-    width: 200px;
-    height: 100px;
-    background-color: #ffffff;
-    border: 1px solid #a1a1a1;
-    border-radius: 8px;
-    font-family: Poppins, sans-serif;
-    color: #0D0F10;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8ff;
+    color: #0D0F10;
+    min-height: 100vh;
 }
 
-@media (max-width: 1500px){
-    .featuresMenuWrapper{
-        left: 265px;
+.featureTitleWrap {
+    font-family: Poppins, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.featureTitle {
+    font-family: Poppins, sans-serif;
+    font-size: 3.25rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.featureExplanation {
+    text-align: center;
+    padding-left: 300px;
+    padding-right: 300px;
+    font-size: 18px;
+    padding-bottom: 40px;
+    
+}
+
+.buttonsWrap{
+    font-family: Poppins, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 20px;
+    gap: 16px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+.firstBtns{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 16px;
+}
+.firstBtns:hover{
+    cursor: pointer;
+}
+.secondBtns:hover{
+    cursor: pointer;
+}
+
+.activeButton{
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid rgb(41, 151, 255);
+}
+
+.secondBtns{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 16px;
+}
+
+@media (max-width:500px) {
+    .firstBtns{
+        flex-direction: column;
+    }
+    .secondBtns{
+        flex-direction: column;
     }
 }
 
-.allFeatures{
-    width: 85%;
+@media (max-width: 1600px){
+    .featureExplanation{
+        padding-left: 240px;
+        padding-right: 240px;
+    }
+}
+@media (max-width: 1420px){
+    .featureExplanation{
+        padding-left: 180px;
+        padding-right: 180px;
+    }
+}
+@media (max-width: 1280px){
+    .featureExplanation{
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+@media (max-width: 1048px){
+    .featureExplanation{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+}
+
+@media (max-width: 870px){
+    .featureExplanation{
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 16px;
+    }
+    .featureTitle{
+        font-size: 2.50rem;
+    }
+    .featureTitleWrap{
+        padding-top: 40px;
+    }
+}
+@media (max-width: 450px){
+    .featureExplanation{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.featureContentWrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+    padding-bottom: 160px;
+}
+.fPrivacy, .fSecurity, .fFreedom, .fPerformance{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    
+}
+
+
+.shape{
+    background-color:#ffffff;
+    box-sizing: border-box;
+    color: rgb(13, 15, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    font-family: Poppins, sans-serif;
+    padding: 36px 48px;
+    line-height: 21px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 24px 0px;
+    transition: 0.3s ease-in-out;
     text-align: center;
-    padding: 10px;
-    border-radius: 4px;
+    gap: 30px;
+    transition: 0.3s ease-in-out;
 }
-.whyUseVpn{
-    width: 85%;
+
+#one:hover{
+    transform: translate(-10px, -10px);
+}
+#three:hover{
+    transform: translate(10px, -10px);
+}
+#two:hover{
+    transform: translate(0, -10px);
+}
+
+@media (min-width: 400px){
+    .shape{
+        width: 400px;
+        height: 300px;
+    }
+}
+@media (max-width: 400px) {
+    .shape{
+        width: 90%;
+        height: 400px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 1350px){
+    .fPrivacy, .fSecurity, .fFreedom, .fPerformance{
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1260px){
+    .fPrivacy, .fSecurity, .fFreedom, .fPerformance{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .featureContentWrap{
+        padding-bottom: 20px;
+    }
+}
+
+.featTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(41, 151, 255);
+}
+.featExpl{
+    font-size: 14px;
     text-align: center;
-    padding: 10px;
-    border-radius: 4px;
+    color: rgb(134, 134, 139);
 }
-.allFeatures:hover{
-    cursor: pointer;
-    background-color: rgb(86, 171, 250);
+
+.arrowBackFeature{
+    position: absolute;
+    color: #0D0F10;
+    font-family: Poppins, Arial, "sans-serif";
+    font-size: 40px;
+    left: 5em;
+    top: 105px;
+    transition: 0.3s ease-in-out;
 }
-.whyUseVpn:hover{
+.arrowBackFeature:hover{
     cursor: pointer;
-    background-color: rgb(86, 171, 250);
+    transform: translate(-10px);
+    padding-right: 20px;
+}
+
+@media only screen and (max-width: 1380px) {
+    .arrowBackFeature{
+        left: 4em;
+    }
+}
+@media only screen and (max-width: 1130px) {
+    .arrowBackFeature{
+        left: 3.5em;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .arrowBackFeature{
+        left: 2.5em;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    .arrowBackFeature{
+        top: 38px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .arrowBackFeature{
+        left: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .arrowBackFeature{
+        left: 20px;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .arrowBackFeature{
+        top:0px
+    }
+    .featureTitle{
+        padding-top: 20px;
+    }
 }
