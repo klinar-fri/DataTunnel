@@ -13,6 +13,10 @@
     display: flex;
 }
 
+.textTitle{
+    font-size: 48px;
+}
+
 .optionOne, .optionTwo, .optionThree{
     background-color:#ffffff;
     border-radius: 6px;
@@ -27,7 +31,7 @@
     transition: 0.3s ease-in-out;
 }
 
-.title{
+.titlePricing{
     display: flex;
     flex-direction: row;
     font-family: Poppins, sans-serif; 
@@ -133,43 +137,6 @@
 }
 
 
-@media (min-width: 980px) {
-    .wrapEverything{
-        height: 100vh;
-    }
-}
-
-@media (max-width: 980px){
-    .pricingWrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .title{
-        font-size: 24px;
-        max-width: 300px;
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-}
-
-
-@media (min-width: 300px){
-    .optionOne, .optionTwo, .optionThree{
-        width: 300px;
-        height: 500px;
-    }
-}
-
-@media (max-width: 300px) {
-    .optionOne, .optionTwo, .optionThree {
-        width: 90%;
-        height: 500px;
-        margin: 10px;
-    }
-}
-
 
 /*Arrow copied from Register, just with a diff name to apply one more property*/
 
@@ -196,36 +163,35 @@
     transform: translate(20px);
 }
 
-@media only screen and (max-width: 1380px) {
+@media (min-width: 1380px) {
     .arrowBackTwo{
-        left: 4em;
-    }
-}
-@media only screen and (max-width: 1130px) {
-    .arrowBackTwo{
-        left: 3.5em;
-    }
-}
-@media only screen and (max-width: 1000px) {
-    .arrowBackTwo{
-        left: 2.5em;
-    }
-}
-@media  screen and (max-width: 850px) {
-    .arrowBackTwo{
-        left: 1.5em;
+        left: 10%;
     }
 }
 
-@media (max-width: 570px){
+@media (max-width: 1380px) {
     .arrowBackTwo{
-        display: none;
+        left: 5%;
     }
 }
 
-@media (max-width: 570px){
+@media (max-width: 1180px) {
+    .arrowBackTwo{
+        left: 2.5%;
+    }
+}
+
+@media (max-width: 460px){
     .secondArrow{
         display: block;
+        width: 50%;
+        transform: translate(-60px);
+    }
+}
+
+@media (max-width: 460px){
+    .arrowBackTwo{
+        display: none;
     }
 }
 
@@ -244,3 +210,59 @@
     }
 }
 
+/*Body*/
+
+@media (min-width: 1130px) {
+    .wrapEverything{
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1130px){
+    .pricingWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .titlePricing{
+        font-size: 24px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    .arrowBackTwo{
+        left: 15%;
+    }
+}
+
+@media (max-width: 670px){
+    .textTitle{
+        font-size: 32px;
+    }
+    .arrowBackTwo{
+        left: 7.5%;
+    }
+}
+
+
+
+@media (min-width: 360px){
+    .optionOne, .optionTwo, .optionThree{
+        width: 300px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 360px) {
+    .optionOne, .optionTwo, .optionThree {
+        width: 100%;
+        height: 500px;
+        margin: 10px;
+    }
+
+    .price{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

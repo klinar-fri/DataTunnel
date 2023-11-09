@@ -55,7 +55,7 @@ function Login() {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
+        })  
         .then(response => {
             if (response.data.message === 'You are logged in!') {
                 setLoggedInUser(email);

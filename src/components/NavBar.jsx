@@ -23,6 +23,10 @@ function NavBar() {
         navigate('/features');
     }
 
+    const handleGoToSupport = () => {
+        navigate('/support');
+    }
+
     const [showFeatures, setShowFeatures] = useState(false);
     const [showDownload, setShowDownload] = useState(false);
 
@@ -173,7 +177,7 @@ function NavBar() {
 
             {showDownload &&
             <div className="resourcesMenuWrapper">
-                <div className="support">Help & support&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
+                <div className="support" onClick={handleGoToSupport}>Help & support&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
             </div>}
 
         </div>

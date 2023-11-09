@@ -118,3 +118,70 @@
     }
 }
 
+.dashContentWrap{
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8ff;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-wrap:wrap;
+    font-family: Poppins, sans-serif;
+}
+
+.dashContent{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dashContentBox{
+    background-color:#ffffff;
+    box-sizing: border-box;
+    color: rgb(13, 15, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 45%;
+    height: 80%;
+    font-family: Poppins, sans-serif;
+    padding: 36px 48px;
+    line-height: 21px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 24px 0px;
+    gap: 20px;
+}
+#blueTxt{
+    color: rgb(41, 151, 255);
+}
+.passBoxDash{
+    line-height: 33;
+}
+
+@media (max-width: 920px){
+    .dashContent{
+        flex-direction: column;
+    }
+    .dashContentBox{
+        width: 100%;
+    }
+}
+@media (max-width: 375px){
+    .welcomeMsgDash{
+        display: none   ;
+    }
+    .wrapperRightDash{
+        padding-left: 5px;
+    }
+    .wrapperLeftDash{
+        padding-left: 5px;
+    }
+    .dashContentBox{
+        padding: 10px;
+    }
+}

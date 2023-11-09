@@ -17,11 +17,10 @@ function Pricing() {
         <>
         
         <div className="wrapEverything">
-            <div className='title'>
+            <div className='titlePricing'>
                     <div className='arrowBackTwo' onClick={handleBackClick}> ← </div>
                     <div className="textTitle"><span className='fpart'>Security. Privacy. Freedom.</span>&nbsp;For everyone.</div>
             </div>
-            <div className='textTitleAdd'>select a plan for yourself</div>
             <div className="pricingWrapper">
                 <div className='secondArrow' onClick={handleBackClick}> ← </div>
                 <div className="optionOne" onClick={handleGoToCheckout}>
