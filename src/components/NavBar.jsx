@@ -97,6 +97,42 @@ function NavBar() {
        }
     };
 
+    const [showOverlayFeatures, setShowOverlayFeatures] = useState(false);
+    const [showOverlayResources, setShowOverlayResources] = useState(false);
+
+    const handleShowOverlayFeatures = () => {
+        setShowOverlayFeatures(!showOverlayFeatures);
+        const overlayFeatWrapper = document.getElementsByClassName("overlayFeatWrapper")[0];
+        if(overlayFeatWrapper){
+            overlayFeatWrapper.style.display = showOverlayFeatures ? "none" : "flex";
+        }
+    }
+
+    const handleShowOverlayResources = () => {
+        setShowOverlayResources(!showOverlayResources);
+        const overlayResWrapper = document.getElementsByClassName("overlayResWrapper")[0];
+        if(overlayResWrapper){
+            overlayResWrapper.style.display = showOverlayResources ? "none" : "flex";
+        }
+    }
+
+    const handleGoBackToMainMenu = () => {
+        setShowOverlayFeatures(false);
+        setShowOverlay(true);
+    }
+
+    const handleGoBackToMainMenuFromSupp = () => {
+        setShowOverlayResources(false);
+        setShowOverlay(true);
+    }
+
+    const handleGoToWhyVpn = () => {
+        setShowOverlayFeatures(false);
+        setShowOverlay(false);
+        handleIconChange(); 
+        scrollTo2ndPage();
+    }
+
     return(
         <div className="wrapper">
             <div className="wrapperLeft">
@@ -142,7 +178,7 @@ function NavBar() {
             {showOverlay &&
             <div className="overlayWrapper">
                 <div className="elementsTop">
-                    <div className="featureBurgerWrap">
+                    <div className="featureBurgerWrap" onClick={handleShowOverlayFeatures}>
                         <div className="featureBurger">Features</div>
                         <span className="point">{'>'}</span>
                     </div>
@@ -150,8 +186,8 @@ function NavBar() {
                         <div className="pricingBurger">Pricing</div>
                         <span className="point">{'>'}</span>
                     </div>
-                    <div className="downloadBurgerWrap">
-                        <div className="downloadBurger">Download</div>
+                    <div className="downloadBurgerWrap" onClick={handleShowOverlayResources}>
+                        <div className="downloadBurger">Resources</div>
                         <span className="point">{'>'}</span>
                     </div>
                 </div>
@@ -179,6 +215,43 @@ function NavBar() {
             <div className="resourcesMenuWrapper">
                 <div className="support" onClick={handleGoToSupport}>Help & support&nbsp;&nbsp;&nbsp;&nbsp;{'>'}</div>
             </div>}
+
+            {showOverlayFeatures &&
+                <div className="overlayWrapper">
+                    <div className="elementsTop">
+                        <div className="goToMainMenuWrap" onClick={handleGoBackToMainMenu}>
+                            <div className="goToMainMenu"><span className="tickLeft">{'<'}</span>Main menu</div>
+                        </div>
+                        <div className="menuFeatTitleWrap">
+                            <div className="menuFeatTitle">Features</div>
+                        </div>
+                        <div className="allFeatureBurgWrap" onClick={handleGoToFeatures}>
+                            <div className="allFeatBurg">All Features</div>
+                            <span className="point">{'>'}</span>
+                        </div>
+                        <div className="whyVpnBurgWrap" onClick={handleGoToWhyVpn}>
+                            <div className="whyWpnBurg">Why VPN</div>
+                            <span className="point">{'>'}</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            {showOverlayResources &&
+                <div className="overlayWrapper">
+                    <div className="elementsTop">
+                        <div className="goToMainMenuWrap" onClick={handleGoBackToMainMenuFromSupp}>
+                            <div className="goToMainMenu"><span className="tickLeft">{'<'}</span>Main menu</div>
+                        </div>
+                        <div className="menuFeatTitleWrap">
+                            <div className="menuFeatTitle">Resources</div>
+                        </div>
+                        <div className="allFeatureBurgWrap" onClick={handleGoToSupport}>
+                            <div className="allFeatBurg">Help & support</div>
+                            <span className="point">{'>'}</span>
+                        </div>
+                    </div>
+                </div>
+            }
 
         </div>
         

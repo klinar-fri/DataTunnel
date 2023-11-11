@@ -1,8 +1,8 @@
 import './Login.css';
 import logo from "./icons.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
 import Incorrect from "./Incorrect";
 
@@ -10,6 +10,7 @@ import Incorrect from "./Incorrect";
 function Login() {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleBackClick = () => {
         navigate('/');
@@ -26,6 +27,7 @@ function Login() {
     const handleGotoRegister = () => {
         navigate('/register');
     };
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -49,8 +51,8 @@ function Login() {
     };
 
     const [showPopup, setShowPopup] = useState(false);
-        
-    const handleSubmit = () => {
+
+        const handleSubmit = () => {
         axios.post("http://localhost/login.php", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +61,31 @@ function Login() {
         .then(response => {
             if (response.data.message === 'You are logged in!') {
                 setLoggedInUser(email);
-                handleGoToDashboard();
+
+                // Check if redirected from Support, then send data to the database
+                if (location.state && location.state.fromSupport && location.state.message) {
+
+                    const dataToSend = {
+                        email: email,
+                        message: location.state.message,
+                    };
+
+                    axios.post("http://localhost/support.php", JSON.stringify(dataToSend), {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    
+                    .catch(error => {
+                        console.error("Error:", error);
+                        // Handle the error if needed
+                    });
+
+                    handleBackClick();
+                }else{
+                    handleGoToDashboard();
+                }
+                setShowPopup(false)
             } else {
                 setShowPopup(true);
                 setErrorMessage(response.data.message);
@@ -75,7 +101,10 @@ function Login() {
       const handlePopupClose = () => {
         setShowPopup(false);
     };
-   
+    
+
+
+
 
     return (
         <>
