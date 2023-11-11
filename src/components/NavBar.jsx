@@ -87,15 +87,7 @@ function NavBar() {
         });
     };
 
-    const [showOverlay, setShowOverlay] = useState(false);
 
-    const handleShowOverlay = () => {
-       setShowOverlay(!showOverlay);
-       const overlayWrapper = document.getElementsByClassName("overlayWrapper")[0];
-       if (overlayWrapper) {
-         overlayWrapper.style.display = showOverlay ? "none" : "flex";
-       }
-    };
 
     const [showOverlayFeatures, setShowOverlayFeatures] = useState(false);
     const [showOverlayResources, setShowOverlayResources] = useState(false);
@@ -116,6 +108,22 @@ function NavBar() {
         }
     }
 
+    const [showOverlay, setShowOverlay] = useState(false);
+
+    const handleShowOverlay = () => {
+       setShowOverlay(!showOverlay);
+       const overlayWrapper = document.getElementsByClassName("overlayWrapper")[0];
+       if (overlayWrapper) {
+         overlayWrapper.style.display = showOverlay ? "none" : "flex";
+       }
+       if(showOverlayFeatures){
+        setShowOverlayFeatures(false);
+       }
+       if(setShowOverlayResources){
+        setShowOverlayResources(false);
+       }
+    };
+
     const handleGoBackToMainMenu = () => {
         setShowOverlayFeatures(false);
         setShowOverlay(true);
@@ -131,6 +139,11 @@ function NavBar() {
         setShowOverlay(false);
         handleIconChange(); 
         scrollTo2ndPage();
+    }
+
+    const handleExitMenu = () => {
+        setShowOverlay(false);
+        setShowOverlayFeatures(false);
     }
 
     return(
