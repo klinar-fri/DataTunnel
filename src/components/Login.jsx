@@ -53,7 +53,7 @@ function Login() {
     const [showPopup, setShowPopup] = useState(false);
 
         const handleSubmit = () => {
-        axios.post("http://localhost/login.php", JSON.stringify(data), {
+        axios.post("http://datatunnel.great-site.net/login.php", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -70,7 +70,7 @@ function Login() {
                         message: location.state.message,
                     };
 
-                    axios.post("http://localhost/support.php", JSON.stringify(dataToSend), {
+                    axios.post("http://datatunnel.great-site.net/support.php", JSON.stringify(dataToSend), {
                         headers: {
                             'Content-Type': 'application/json'
                         }

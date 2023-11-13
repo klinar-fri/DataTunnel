@@ -188,6 +188,18 @@
     .registerForm{
         height: 100vh;
     }
+    .loginForm{
+        border-radius: 0px;
+    }
+    .registerForm{
+        border-radius: 0px;
+    }
+    .passBox{
+        font-size: 20px;
+    }
+    .emailBox{
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 1200px){

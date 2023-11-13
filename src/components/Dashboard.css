@@ -189,6 +189,9 @@
     .dashContentBox{
         width: 100%;
     }
+    .dashContentBoxSupp{
+        width: 100%;
+    }
 }
 @media (max-width: 375px){
     .welcomeMsgDash{
@@ -201,6 +204,9 @@
         padding-left: 5px;
     }
     .dashContentBox{
+        padding: 10px;
+    }
+    .dashContentBoxSupp{
         padding: 10px;
     }
 }
