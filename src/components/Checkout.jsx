@@ -85,16 +85,16 @@ function Checkout () {
       const { name, value } = e.target;
       switch (name) {
         case "nameCard":
-          set(value);
+          setNameCard(value);
           break;
         case "cardNum":
-          setLastName(value);
+          setCardNum(value);
           break;
         case "expDate":
-          setAddress(value);
+          setExpDate(value);
           break;
         case "cvv":
-          setCity(value);
+          setCvv(value);
           break;
         default:
           break;
@@ -113,19 +113,29 @@ function Checkout () {
         setStageTwoGood(allFieldsFilled ? 'filled' : '');
     };
 
-    //stage3
-    const [stageThreeGood, setStageThreeGood] = useState("");
-    const [showStage3, setShowStage3] = useState(false);
 
     const handleShowStage2 = () => {
-        setShowStage1(false);
-        setShowStage2(trueq);
-      };
+        if(stageGood == "filled"){
+            setShowStage1(false);
+            setShowStage2(true);
+        }
+    };
       
+
+    //stage3
+    
+    const [stageThreeGood, setStageThreeGood] = useState(false)
+    const [showStage3, setShowStage3] = useState(false);
+
+
     const handleShowStage3 = () => {
-        setShowStage1(false);
-        setShowStage2(false);
-        setShowStage3(true);
+        if(stageTwoGood == 'filled'){
+            setShowStage1(false);
+            setShowStage2(false);
+            setShowStage3(true);
+            setStageThreeGood(true)
+        }
+
     }
 
     return(
@@ -182,7 +192,7 @@ function Checkout () {
                         </div>
                     </div>
                     <div className='log' onClick={handleShowStage2}>
-                        <button className='loginBtnTwo'>Next</button>
+                        <button className='loginBtnTwo' style={{ marginBottom: '20px' }}>Next</button>
                     </div>
                 </div>}
             {showStage2 &&
@@ -196,25 +206,25 @@ function Checkout () {
                 <div className="fullName">
                     <div className="emailClass">
                         <label id='emailBoxTwo'>Name on the card</label>
-                        <input className="emailBoxTwo" type="txt" name='nameCard' value={nameCard} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
+                        <input className="emailBoxTwo" type="txt" name='nameCard' placeholder='your name' value={nameCard} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
                     </div>
                     <div className="emailClass">
                         <label id='emailBoxTwo'>Card number</label>
-                        <input className="emailBoxTwo" type="txt" name='cardNum' value={cardNum} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
+                        <input className="emailBoxTwo" type="number" placeholder='ex: 4012888888881881' name='cardNum' value={cardNum} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
                     </div>
                 </div>
                 <div className="fullName">
                     <div className="emailClass">
                         <label id='emailBoxTwo'>Expiry date</label>
-                        <input className="emailBoxTwo" type="txt" name='expDate' value={expDate} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
+                        <input className="emailBoxTwo" type="txt" placeholder='month / year' name='expDate' value={expDate} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
                     </div>
                     <div className="emailClass">
                         <label id='emailBoxTwo'>CVV</label>
-                        <input className="emailBoxTwo" type="txt" name='cvv' value={cvv} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
+                        <input className="emailBoxTwo" type="number" placeholder='3-digits on the back' name='cvv' value={cvv} onChange={handleInputChangeTwo} onBlur={handleInputBlurTwo}/>
                     </div>
                 </div>
                 <div className='log' onClick={handleShowStage3}>
-                    <button className='loginBtnTwo'>Next</button>
+                    <button className='loginBtnTwo' style={{ marginBottom: '20px' }}>Next</button>
                 </div>
             </div>}
             {showStage3 &&
@@ -225,6 +235,53 @@ function Checkout () {
                     <div className={`stage2 ${stageTwoGood ? 'filled' : ''}`}>2. Payment details</div>
                     <div className={`stage3 ${stageThreeGood ? 'filled' : ''}`}>3. Review order</div>
                 </div>
+                <div className="summaryWrapper">
+                    <div className="summary">Summary</div>
+                </div>
+                <div className="twoColWrap">
+                    <div className="selectedPlan">
+                        <div className="planHeading">Selected plan:</div>
+                        <div className="passedContent">
+                            <div className="co">Type: {planType}</div>
+                            <div className="co">Discount: {discountAmount}</div>
+                            <div className="co">Price: {price}</div>
+                        </div>
+                    </div>
+                    <div className="selectedPlan">
+                        <div className="planHeading">Payment details:</div>
+                        <div className="passedContent">
+                            <div className="co">Name on the card: {nameCard}</div>
+                            <div className="co">Card number: {cardNum}</div>
+                            <div className="co">Expiry date: {expDate}</div>
+                            <div className="co">CVV: {cvv}</div>
+                        </div>
+                    </div>  
+                </div>
+                <div className="twoColWrapTwo">
+                <div className="selectedPlan">
+                        <div className="planHeading">Billing details:</div>
+                        <div className="passedContent">
+                            <div className="co">First Name: {firstName}</div>
+                            <div className="co">Last Name: {lastName}</div>
+                            <div className="co">Address: {address}</div>
+                            <div className="co">City: {city}</div>
+                        </div>
+                    </div>
+                    <div className="selectedPlan">
+                        <div className="planHeading"></div>
+                        <div className="passedContent">
+                            <div id='empty'>&nbsp;</div>
+                            <div className="co">State/Province/Region: {state}</div>
+                            <div className="co">Zip/Postal code: {postCode}</div>
+                            <div className="co">Country: {country}</div>
+                        </div>
+                    </div>  
+                </div>
+
+                <div className='log'>
+                    <button className='loginBtnTwo' style={{ marginBottom: '20px' }}>Confirm purchase</button>
+                </div>
+                
             </div>
             }
         </div>
