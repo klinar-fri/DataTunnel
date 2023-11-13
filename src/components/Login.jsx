@@ -78,7 +78,6 @@ function Login() {
                     
                     .catch(error => {
                         console.error("Error:", error);
-                        // Handle the error if needed
                     });
 
                     handleBackClick();

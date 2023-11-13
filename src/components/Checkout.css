@@ -23,3 +23,74 @@
     transform: translate(-10px);
 }
 
+.stages{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    color: #A1A1A1;
+    align-items: center;
+    transform: translate(0, -50px);
+    justify-content: center;
+}
+.stage1, .stage2, .stage3{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filled{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(60, 199, 0);
+}
+
+.fullName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    gap: 20px;
+}
+
+.emailBoxTwo{
+    padding: 10px 16px;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 4px;
+    color: inherit;
+}
+
+.address{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 125.715%;
+    gap: 20px;
+}
+
+@media (max-width: 400px){
+    .stages{
+        flex-direction: column;
+    }
+    .fullName{
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    .stages{
+        font-size: 18px;
+    }
+    .emailBoxTwo{
+        font-size: 20px;
+        margin-top: 5px;
+    }
+    .address{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
