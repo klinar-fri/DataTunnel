@@ -24,6 +24,7 @@ function Checkout () {
     const [postCode, setPostCode] = useState("");
     const [country, setCountry] = useState("");
     const [stageGood, setStageGood] = useState("");
+    const [stageOneChecker, setStageOneChecker] = useState(false);
 
     useEffect(() => {
         checkAllFields(); // Check on component mount
@@ -69,6 +70,10 @@ function Checkout () {
         const allFieldsFilled = firstName && lastName && address && city && state && postCode && country;
     
         setStageGood(allFieldsFilled ? 'filled' : '');
+        if(allFieldsFilled){
+            setStageOneChecker(true);
+        }
+
     };
 
     // stage2
@@ -80,6 +85,7 @@ function Checkout () {
     const[expDate, setExpDate] = useState("");
     const[cvv, setCvv] = useState("");
     const [stageTwoGood, setStageTwoGood] = useState("");
+    const [stageTwoChecker, setStageTwoChecker] = useState(false);
 
     const handleInputChangeTwo = (e) => {
       const { name, value } = e.target;
@@ -111,6 +117,9 @@ function Checkout () {
         const allFieldsFilled = nameCard && cardNum && expDate && cvv;
     
         setStageTwoGood(allFieldsFilled ? 'filled' : '');
+        if(allFieldsFilled){
+            setStageTwoChecker(true);
+        }
     };
 
 
@@ -126,17 +135,63 @@ function Checkout () {
     
     const [stageThreeGood, setStageThreeGood] = useState(false)
     const [showStage3, setShowStage3] = useState(false);
+    const [stageThreeChecker, setStageThreeChecker] = useState(false);
 
 
     const handleShowStage3 = () => {
-        if(stageTwoGood == 'filled'){
-            setShowStage1(false);
-            setShowStage2(false);
-            setShowStage3(true);
-            setStageThreeGood(true)
+        setShowStage1(false);
+        setShowStage2(false);
+        setShowStage3(true);
+        if(stageOneChecker === true && stageTwoChecker === true ){
+            setStageThreeChecker(true);
+            setStageThreeGood('filled');
         }
-
     }
+
+    const handleGoToStage1 = () => {
+        setShowStage1(true);
+        setShowStage2(false);
+        setShowStage3(false);
+    }
+
+    const handleGoToStage3 = () => {
+        setShowStage1(false)
+        setShowStage2(false);
+        setShowStage3(true);
+    }
+
+    const handleGoToStage2 = () => {
+        setShowStage1(false);
+        setShowStage2(true);
+        setShowStage3(false);
+    }
+
+
+    // sending & auth
+
+    const handleSendData = () => {
+        navigate('/login', {
+            state: {
+                fromCheckout: true,
+                planType: planType,
+                discountAmount: discountAmount,
+                price: price,
+                firstName: firstName,
+                lastName: lastName,
+                address: address,
+                city: city,
+                state: state,
+                postCode: postCode,
+                country: country,
+                nameCard: nameCard,
+                cardNum: cardNum,
+                expDate: expDate,
+                cvv: cvv
+            }
+        });
+    };
+    
+    
 
     return(
         <>  
@@ -151,8 +206,8 @@ function Checkout () {
                     <h3 className='welcome'>Checkout</h3>
                     <div className="stages">
                         <div className={`stage1 ${stageGood ? 'filled' : ''}`}>1. Billing info</div>
-                        <div className="stage2">2. Payment details</div>
-                        <div className="stage3">3. Review order</div>
+                        <div className="stage2" onClick={handleGoToStage2}>2. Payment details</div>
+                        <div className="stage3" onClick={handleGoToStage3}>3. Review order</div>
                     </div>
                     <div className="stageName"></div>
                     <div className="fullName">
@@ -199,9 +254,9 @@ function Checkout () {
             <div className="loginForm">
                 <h3 className='welcome'>Checkout</h3>
                 <div className="stages">
-                    <div className={`stage1 ${stageGood ? 'filled' : ''}`}>1. Billing info</div>
+                    <div className={`stage1 ${stageGood ? 'filled' : ''}`} onClick={handleGoToStage1}>1. Billing info</div>
                     <div className={`stage2 ${stageTwoGood ? 'filled' : ''}`}>2. Payment details</div>
-                    <div className="stage3">3. Review order</div>
+                    <div className="stage3" onClick={handleGoToStage3}>3. Review order</div>
                 </div>
                 <div className="fullName">
                     <div className="emailClass">
@@ -231,8 +286,8 @@ function Checkout () {
             <div className="loginForm">
                 <h3 className='welcome'>Checkout</h3>
                 <div className="stages">
-                    <div className={`stage1 ${stageGood ? 'filled' : ''}`}>1. Billing info</div>
-                    <div className={`stage2 ${stageTwoGood ? 'filled' : ''}`}>2. Payment details</div>
+                    <div className={`stage1 ${stageGood ? 'filled' : ''}`} onClick={handleGoToStage1}>1. Billing info</div>
+                    <div className={`stage2 ${stageTwoGood ? 'filled' : ''}`} onClick={handleGoToStage2}>2. Payment details</div>
                     <div className={`stage3 ${stageThreeGood ? 'filled' : ''}`}>3. Review order</div>
                 </div>
                 <div className="summaryWrapper">
@@ -279,7 +334,7 @@ function Checkout () {
                 </div>
 
                 <div className='log'>
-                    <button className='loginBtnTwo' style={{ marginBottom: '20px' }}>Confirm purchase</button>
+                    <button className='loginBtnTwo' style={{ marginBottom: '20px' }} onClick={handleSendData}>Confirm purchase</button>
                 </div>
                 
             </div>

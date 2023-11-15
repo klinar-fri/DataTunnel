@@ -112,6 +112,10 @@
 }
 
 
+.stage1:hover, .stage2:hover, .stage3:hover{
+    color: #0D0F10;
+    cursor: pointer;
+}
 
 @media (max-width: 400px){
     .stages{

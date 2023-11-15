@@ -2,7 +2,7 @@ import './Login.css';
 import logo from "./icons.png";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from './AuthContext';
 import Incorrect from "./Incorrect";
 
@@ -81,6 +81,52 @@ function Login() {
                     });
 
                     handleBackClick();
+                }else if(
+                    location.state &&
+                    location.state.fromCheckout &&
+                    location.state.planType &&
+                    location.state.discountAmount &&
+                    location.state.price &&
+                    location.state.firstName &&
+                    location.state.lastName &&
+                    location.state.address &&
+                    location.state.city &&
+                    location.state.state &&
+                    location.state.postCode &&
+                    location.state.country &&
+                    location.state.nameCard &&
+                    location.state.cardNum &&
+                    location.state.expDate &&
+                    location.state.cvv
+                ){
+                    const dataToSend = {
+                        email: email,
+                        planType: location.state.planType,
+                        discountAmount: location.state.discountAmount,
+                        price: location.state.price,
+                        firstName: location.state.firstName,
+                        lastName: location.state.lastName,
+                        address: location.state.address,
+                        city: location.state.city,
+                        state: location.state.state,
+                        postCode: location.state.postCode,
+                        country: location.state.country,
+                        nameCard: location.state.nameCard,
+                        cardNum: location.state.cardNum,
+                        expDate: location.state.expDate,
+                        cvv: location.state.cvv
+                    }
+
+                    axios.post("http://localhost/checkout.php"), JSON.stringify(dataToSend), {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+
                 }else{
                     handleGoToDashboard();
                 }
