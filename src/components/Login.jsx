@@ -52,8 +52,8 @@ function Login() {
 
     const [showPopup, setShowPopup] = useState(false);
 
-        const handleSubmit = () => {
-        axios.post("http://datatunnel.great-site.net/login.php", JSON.stringify(data), {
+    const handleSubmit = () => {
+        axios.post("http://localhost/login.php", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -70,7 +70,7 @@ function Login() {
                         message: location.state.message,
                     };
 
-                    axios.post("http://datatunnel.great-site.net/support.php", JSON.stringify(dataToSend), {
+                    axios.post("http://localhost/support.php", JSON.stringify(dataToSend), {
                         headers: {
                             'Content-Type': 'application/json'
                         }
@@ -81,7 +81,10 @@ function Login() {
                     });
 
                     handleBackClick();
-                }else if(
+
+                }
+                // Check if redirected from checkout, then send to db
+                if(
                     location.state &&
                     location.state.fromCheckout &&
                     location.state.planType &&
@@ -89,9 +92,9 @@ function Login() {
                     location.state.price &&
                     location.state.firstName &&
                     location.state.lastName &&
-                    location.state.address &&
+                    location.state.addressName &&
                     location.state.city &&
-                    location.state.state &&
+                    location.state.stateName &&
                     location.state.postCode &&
                     location.state.country &&
                     location.state.nameCard &&
@@ -106,9 +109,9 @@ function Login() {
                         price: location.state.price,
                         firstName: location.state.firstName,
                         lastName: location.state.lastName,
-                        address: location.state.address,
+                        addressName: location.state.addressName,
                         city: location.state.city,
-                        state: location.state.state,
+                        stateName: location.state.stateName,
                         postCode: location.state.postCode,
                         country: location.state.country,
                         nameCard: location.state.nameCard,
@@ -117,16 +120,20 @@ function Login() {
                         cvv: location.state.cvv
                     }
 
-                    axios.post("http://localhost/checkout.php"), JSON.stringify(dataToSend), {
+                    axios.post("http://localhost/checkout.php", JSON.stringify(dataToSend), {
                         headers: {
                             'Content-Type': 'application/json'
                         }
-                    }
+                    })
+                        // .then(response => {
+                        //     console.log("Response:", response.data);
+                        // })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                    
 
-                    .catch(error => {
-                        console.error("Error:", error);
-                    });
-
+                    handleBackClick();
                 }else{
                     handleGoToDashboard();
                 }
@@ -141,7 +148,7 @@ function Login() {
             setErrorMessage("An error occurred. Please try again later.");
             
         });
-      };
+    };
       
       const handlePopupClose = () => {
         setShowPopup(false);

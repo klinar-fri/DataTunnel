@@ -47,7 +47,7 @@ function Login() {
     const [showGoodPupup, setShowGoodPopup] = useState(false);
         
     const handleSubmit = () => {
-        axios.post("http://datatunnel.great-site.net/register.php", JSON.stringify(data), {
+        axios.post("http://localhost/register.php", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -16,7 +16,7 @@ function Dashboard() {
   
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://datatunnel.great-site.net/fetchUsers.php');
+        const response = await axios.get('http://localhost/fetchUsers.php');
         setUserDataDisplay(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -25,7 +25,7 @@ function Dashboard() {
 
     const fetchSupportData = async () => {
       try{
-        const responseSupp = await axios.get('http://datatunnel.great-site.net/fetchSupportData.php');
+        const responseSupp = await axios.get('http://localhost/fetchSupportData.php');
         setSupportDataDisplay(responseSupp.data);
       }catch (error){
         console.error('Error fetching support data:', error);

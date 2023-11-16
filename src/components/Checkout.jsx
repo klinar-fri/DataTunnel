@@ -18,9 +18,9 @@ function Checkout () {
     const [showStage1, setShowStage1] = useState(true);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [address, setAddress] = useState("");
+    const [addressName, setAddressName] = useState("");
     const [city, setCity] = useState("");
-    const [state, setState] = useState("");
+    const [stateName, setStateName] = useState("");
     const [postCode, setPostCode] = useState("");
     const [country, setCountry] = useState("");
     const [stageGood, setStageGood] = useState("");
@@ -39,14 +39,14 @@ function Checkout () {
           case "lastName":
             setLastName(value);
             break;
-          case "address":
-            setAddress(value);
+          case "addressName":
+            setAddressName(value);
             break;
           case "city":
             setCity(value);
             break;
-          case "state":
-            setState(value);
+          case "stateName":
+            setStateName(value);
             break;
           case "postCode":
             setPostCode(value);
@@ -67,7 +67,7 @@ function Checkout () {
 
     
     const checkAllFields = () => {
-        const allFieldsFilled = firstName && lastName && address && city && state && postCode && country;
+        const allFieldsFilled = firstName && lastName && addressName && city && stateName && postCode && country;
     
         setStageGood(allFieldsFilled ? 'filled' : '');
         if(allFieldsFilled){
@@ -178,9 +178,9 @@ function Checkout () {
                 price: price,
                 firstName: firstName,
                 lastName: lastName,
-                address: address,
+                addressName: addressName,
                 city: city,
-                state: state,
+                stateName: stateName,
                 postCode: postCode,
                 country: country,
                 nameCard: nameCard,
@@ -223,7 +223,7 @@ function Checkout () {
                     <div className="address">
                         <div className="emailClass">
                             <label id='emailBoxTwo'>Address</label>
-                            <input className="emailBoxTwo" type="txt" name='address' value={address} onChange={handleInputChange} onBlur={handleInputBlur}/>
+                            <input className="emailBoxTwo" type="txt" name='addressName' value={addressName} onChange={handleInputChange} onBlur={handleInputBlur}/>
                         </div>
                     </div>
                     <div className="fullName">
@@ -233,7 +233,7 @@ function Checkout () {
                         </div>
                         <div className="emailClass">
                             <label id='emailBoxTwo'>State/Province/Region</label>
-                            <input className="emailBoxTwo" type="txt" name='state' value={state} onChange={handleInputChange} onBlur={handleInputBlur}/>
+                            <input className="emailBoxTwo" type="txt" name='stateName' value={stateName} onChange={handleInputChange} onBlur={handleInputBlur}/>
                         </div>
                     </div>
                     <div className="fullName">
@@ -318,7 +318,7 @@ function Checkout () {
                         <div className="passedContent">
                             <div className="co">First Name: {firstName}</div>
                             <div className="co">Last Name: {lastName}</div>
-                            <div className="co">Address: {address}</div>
+                            <div className="co">Address: {addressName}</div>
                             <div className="co">City: {city}</div>
                         </div>
                     </div>
@@ -326,7 +326,7 @@ function Checkout () {
                         <div className="planHeading"></div>
                         <div className="passedContent">
                             <div id='empty'>&nbsp;</div>
-                            <div className="co">State/Province/Region: {state}</div>
+                            <div className="co">State/Province/Region: {stateName}</div>
                             <div className="co">Zip/Postal code: {postCode}</div>
                             <div className="co">Country: {country}</div>
                         </div>
