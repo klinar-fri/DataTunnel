@@ -16,4 +16,9 @@
         echo "Could not connect!";
     }
     
+    // $db_server = "sql201.infinityfree.com";
+    // $db_user = "if0_35412222";
+    // $db_pass = "4j3kaVH0FSV";
+    // $db_name = "if0_35412222_usersdb";
+    // $conn = "";
 ?>
