@@ -1,5 +1,6 @@
 import './Login.css';
 import logo from "./icons.png";
+import eye from './icons8-eye-20.png'
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
@@ -150,13 +151,23 @@ function Login() {
         });
     };
       
-      const handlePopupClose = () => {
+    const handlePopupClose = () => {
         setShowPopup(false);
     };
+
+    const handleShowPassword = () => {
+        const passwordInput = document.querySelector('.passBox'); 
+        const eyeIcon = document.querySelector('.eye'); 
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.style.background = 'none';
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.style.background = 'linear-gradient(to bottom right, transparent 46%, black 46%, black 54%, transparent 54%)';
+        }
+    };
     
-
-
-
 
     return (
         <>
@@ -173,7 +184,10 @@ function Login() {
                     <input className="emailBox" type="email" name='email' value={email} onChange={handleEmailChange}/>
                 </div>
                 <div className='passwordClass'>
-                    <label htmlFor="passBox">Password</label>
+                    <div className='labelWrap'>
+                        <div className='eyeLeft'>Password</div>
+                        <img src={eye} className='eye' alt="showPwdLogo" onClick={handleShowPassword}/>
+                    </div>
                     <input className='passBox' type="password" name='password' value={password} onChange={handlePasswordChange}/>
                 </div>
                 <div className='passForgot'>

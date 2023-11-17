@@ -13,6 +13,8 @@ function Dashboard() {
     const [popupMessage, setPopupMessage] = useState('');
     const [userDataDisplay, setUserDataDisplay] = useState([]);
     const [supportDataDisplay, setSupportDataDisplay] = useState([]);
+    const [checkoutDataDisplay, setCheckoutDataDisplay] = useState([]);
+    const [selectedPlansDisplay, setselectedPlansDisplay] = useState([]);
   
     const fetchData = async () => {
       try {
@@ -31,7 +33,30 @@ function Dashboard() {
         console.error('Error fetching support data:', error);
       }
     }
-  
+
+    const fetchCheckoutData = async () => {
+      try{
+        const responseCheckout = await axios.get('http://localhost/fetchCheckoutData.php');
+        setCheckoutDataDisplay(responseCheckout.data);
+      }catch (error){
+        console.error('Error fetching support data:', error);
+      }
+    }
+
+
+    const fetchUserPlans = async () => {
+      try {
+        const responseUserPlan = await axios.get(
+          `http://localhost/fetchUserPlans.php?email=${loggedInEmail}`
+        );
+        setselectedPlansDisplay(responseUserPlan.data);
+      } catch (error) {
+        console.error('Error fetching user plans data:', error);
+      }
+    };
+    
+    
+    
     useEffect(() => {
       if (loggedInEmail === 'admin@datatunnel.com') {
         fetchData();
@@ -45,6 +70,22 @@ function Dashboard() {
         fetchSupportData();
       } else {
         setSupportDataDisplay([]);
+      }
+    }, [loggedInEmail]);
+
+    useEffect(() => {
+      if (loggedInEmail === 'sales@datatunnel.com') {
+        fetchCheckoutData();
+      } else {
+        setCheckoutDataDisplay([]);
+      }
+    }, [loggedInEmail]);
+
+    useEffect(() => {
+      if (loggedInEmail !== 'sales@datatunnel.com' && loggedInEmail !== 'admin@datatunnel.com' && loggedInEmail !== 'support@datatunnel.com') {
+        fetchUserPlans();
+      } else {
+        setselectedPlansDisplay([]);
       }
     }, [loggedInEmail]);
     
@@ -63,14 +104,29 @@ function Dashboard() {
       setShowPopup(false);
     };
 
-    const truncatePassword = (password) => {
-      const maxLength = 15;
-      if (password.length > maxLength) {
-          return password.slice(0, maxLength) + ' ...';
-      }
-      return password;
+  const truncatePassword = (password) => {
+    const maxLength = 15;
+    if (password.length > maxLength) {
+        return password.slice(0, maxLength) + ' ...';
+    }
+    return password;
   };
 
+  const truncateCvv = (cvv) => {
+    const maxLength = 15;
+    if (cvv.length > maxLength) {
+        return cvv.slice(0, maxLength) + '...';
+    }
+    return cvv;
+  };
+
+  const truncateCard = (cardNum) => {
+    const maxLength = 15;
+    if (cardNum.length > maxLength) {
+        return cardNum.slice(0, maxLength) + '...';
+    }
+    return cardNum;
+  };
 
     return(
       <>
@@ -109,6 +165,54 @@ function Dashboard() {
                     <div id='suppMessageContainer'>Message: {user.message}</div>
                   </div>
                 ))}
+              </div>
+            )}
+            {loggedInEmail === 'sales@datatunnel.com' && (
+              <div className="dashContent">
+                {checkoutDataDisplay.map(user =>(
+                  <div className="dashContentBoxSales" key={user.id}>
+                    <div className="firstHalf">
+                      <div>Id: <span id='blueTxt'>{user.id}</span></div>
+                      <div>Email: {user.email}</div>
+                      <div>Payment plan: {user.planType}</div>
+                      <div>Discount Amount: {user.discountAmount}</div>
+                      <div>Price: {user.price}</div>
+                      <div>First Name: {user.firstName}</div>
+                      <div>Last Name: {user.lastName}</div>
+                      <div>Address: {user.addressName}</div>
+                    </div>
+                    <div className="secondHalf">
+                      <div>City: {user.city}</div>
+                      <div>State: {user.stateName}</div>
+                      <div>Post Code: {user.postCode}</div>
+                      <div>Country: {user.country}</div>
+                      <div>Name on the Card: {user.nameCard}</div>
+                      <div>Card Number: {truncateCard(user.cardNum)}</div>
+                      <div>Expiration Date: {user.expDate}</div>
+                      <div>CVV: {truncateCvv(user.cvv)}</div>
+                    </div>
+                </div>
+                ))}
+              </div>
+            )}
+            {loggedInEmail !== 'sales@datatunnel.com' && loggedInEmail !== 'admin@datatunnel.com' && loggedInEmail !== 'support@datatunnel.com' && (
+              <div className="dashContentUser">
+                <div className="yourSelectedPlans">Your active plans:</div>
+                {Array.isArray(selectedPlansDisplay) && selectedPlansDisplay.length > 0 ? (
+                  selectedPlansDisplay.map((user, index) =>(
+                    <div className="dashContentBoxUser" key={`${user.email}-${index}`}>
+                        <div>Payment plan: <span id='blueTxt'>{user.planType}</span></div>
+                        <div>First Name: {user.firstName}</div>
+                        <div>Last Name: {user.lastName}</div>
+                        <div>Discount: {user.discountAmount}</div>
+                        <div>Price: {user.price}</div>
+                        <div>Purchase Date: {user.purchaseDate}</div>
+                    </div>
+                  ))
+                ):(
+                  <></>
+                )}
+
               </div>
             )}
         </div>

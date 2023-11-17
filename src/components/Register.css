@@ -78,6 +78,20 @@
     color: inherit;
 }
 
+.labelWrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eye{
+    background: linear-gradient(to bottom right, transparent 46%, black 46%, black 54%, transparent 54%);
+}
+
+.eye:hover{
+    cursor: pointer;
+}
+
 .passChecker{
     display:inline-flex;
     font-size: 10px;
