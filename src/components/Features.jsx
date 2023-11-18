@@ -13,53 +13,67 @@ function Features(){
 
 
     const handleShowfPrivacy = () => {
-        setShowfPrivacy(!showfPrivacy);
-        const fPrivacy = document.getElementsByClassName('fPrivacy')[0];
-        if (fPrivacy) {
-            fPrivacy.style.display = showfPrivacy ? "none" : "flex";
+        if (!showfPrivacy) {
+            setShowfPrivacy(true);
+            const fPrivacy = document.getElementsByClassName('fPrivacy')[0];
+            if (fPrivacy) {
+                fPrivacy.style.display = "flex";
+            }
+            setShowfFreedom(false);
+            setShowfPerformance(false);
+            setShowfSecurity(false);
+        } else {
+            // nič
         }
-        setShowfFreedom(false);
-        setShowfPerformance(false);
-        setShowfSecurity(false);
-
     };
+    
+    
 
 
     const handleShowfSecurity = () => {
-        setShowfSecurity(!showfSecurity);
-        const fSecurity = document.getElementsByClassName('fSecurity')[0];
-        if(fSecurity){
-            fSecurity.style.display = showfSecurity ? "none" : "flex";
+        if(!showfSecurity){
+            setShowfSecurity(!showfSecurity);
+            const fSecurity = document.getElementsByClassName('fSecurity')[0];
+            if(fSecurity){
+                fSecurity.style.display = "flex";
+            }
+            setShowfFreedom(false);
+            setShowfPerformance(false);
+            setShowfPrivacy(false);
+        }else{
+            // nič
         }
-        setShowfFreedom(false);
-        setShowfPerformance(false);
-        setShowfPrivacy(false);
-
-    }
+    };
 
     const handleShowfFreedom = () => {
-        setShowfFreedom(!showfFreedom);
-        const fFreedom = document.getElementsByClassName('fFreedom')[0];
-        if(fFreedom){
-            fFreedom.style.display = showfFreedom ? "none" : "flex";
-        }
-        setShowfPerformance(false);
-        setShowfPrivacy(false);
-        setShowfSecurity(false);
+        if(!showfFreedom){
+            setShowfFreedom(!showfFreedom);
+            const fFreedom = document.getElementsByClassName('fFreedom')[0];
+            if(fFreedom){
+                fFreedom.style.display = "flex";
+            }
+            setShowfPerformance(false);
+            setShowfPrivacy(false);
+            setShowfSecurity(false);
+        }else{
 
-    }
+        }
+    };
 
     const handleShowfPerformance = () => {
-        setShowfPerformance(!showfPerformance);
-        const fPerformance = document.getElementsByClassName('fPerformance')[0];
-        if(fPerformance){
-            fPerformance.style.display = showfPerformance ? "none" : "flex";
-        }
-        setShowfFreedom(false);
-        setShowfPrivacy(false);
-        setShowfSecurity(false);
+        if(!showfPerformance){
+            setShowfPerformance(!showfPerformance);
+            const fPerformance = document.getElementsByClassName('fPerformance')[0];
+            if(fPerformance){
+                fPerformance.style.display = "flex";
+            }
+            setShowfFreedom(false);
+            setShowfPrivacy(false);
+            setShowfSecurity(false);
+        }else{
 
-    }
+        }
+    };
 
 
     const handleBorderChange = (event) => {
@@ -72,7 +86,6 @@ function Features(){
     };
 
     useEffect(() => {
-        // Set privacy tag as default active button
         const defaultButton = document.querySelector('.showPriFeat');
         if (defaultButton) {
             handleBorderChange({ target: defaultButton });

@@ -123,6 +123,21 @@
     }
 }
 
+
+@media (min-width: 400px){
+    .inputArea{
+        height: 50%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 450px){
+    .inputArea{
+        width: 90%;
+    }
+}
+
+
 @media (max-width: 400px){
     .inputArea{
         width: 90%;

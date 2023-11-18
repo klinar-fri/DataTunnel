@@ -18,7 +18,7 @@ function Dashboard() {
   
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost/fetchUsers.php');
+        const response = await axios.get('http://datatunnel.great-site.net/fetchUsers.php');
         setUserDataDisplay(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -27,7 +27,7 @@ function Dashboard() {
 
     const fetchSupportData = async () => {
       try{
-        const responseSupp = await axios.get('http://localhost/fetchSupportData.php');
+        const responseSupp = await axios.get('http://datatunnel.great-site.net/fetchSupportData.php');
         setSupportDataDisplay(responseSupp.data);
       }catch (error){
         console.error('Error fetching support data:', error);
@@ -36,7 +36,7 @@ function Dashboard() {
 
     const fetchCheckoutData = async () => {
       try{
-        const responseCheckout = await axios.get('http://localhost/fetchCheckoutData.php');
+        const responseCheckout = await axios.get('http://datatunnel.great-site.net/fetchCheckoutData.php');
         setCheckoutDataDisplay(responseCheckout.data);
       }catch (error){
         console.error('Error fetching support data:', error);
@@ -47,7 +47,7 @@ function Dashboard() {
     const fetchUserPlans = async () => {
       try {
         const responseUserPlan = await axios.get(
-          `http://localhost/fetchUserPlans.php?email=${loggedInEmail}`
+          `http://datatunnel.great-site.net/fetchUserPlans.php?email=${loggedInEmail}`
         );
         setselectedPlansDisplay(responseUserPlan.data);
       } catch (error) {
